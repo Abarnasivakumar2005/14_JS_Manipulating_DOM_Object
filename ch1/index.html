@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Colors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .number {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        const container = document.getElementById('container');
+
+        // Function to check if a number is prime
+        const isPrime = (num) => {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        };
+
+        // Create numbers from 1 to 100
+        for (let i = 1; i <= 100; i++) {
+            const numberDiv = document.createElement('div');
+            numberDiv.className = 'number';
+            numberDiv.textContent = i;
+
+            // Set background color based on number type
+            if (isPrime(i)) {
+                numberDiv.style.backgroundColor = 'red'; // Prime
+            } else if (i % 2 === 0) {
+                numberDiv.style.backgroundColor = 'green'; // Even
+            } else {
+                numberDiv.style.backgroundColor = 'yellow'; // Odd
+            }
+
+            container.appendChild(numberDiv); // Append to container
+        }
+    </script>
+</body>
+</html>

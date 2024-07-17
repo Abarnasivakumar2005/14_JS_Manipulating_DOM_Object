@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .country-card {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .country-card:hover {
+            transform: scale(1.05);
+        }
+        .country-name {
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countries</h1>
+    <div id="container"></div>
+
+    <script>
+        const countries = [
+            'Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland', 
+            'Estonia', 'Latvia', 'Lithuania', 'Germany', 'France', 
+            'United Kingdom', 'United States', 'Canada', 'Australia',
+            'New Zealand', 'Japan', 'China', 'India', 'Brazil',
+            'Argentina', 'South Africa'
+        ];
+
+        const container = document.getElementById('container');
+
+        // Display each country in a card
+        countries.forEach(country => {
+            const countryCard = document.createElement('div');
+            countryCard.className = 'country-card';
+            countryCard.innerHTML = `<p class="country-name">${country}</p>`;
+            container.appendChild(countryCard);
+        });
+    </script>
+</body>
+</html>
